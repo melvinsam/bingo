@@ -1,0 +1,53 @@
+#include <iostream>
+#include <stdlib.h>
+#include <fstream>
+using namespace std;
+int main () {
+ofstream outputFile;
+outputFile.open("bingo.txt");
+         string output;
+         int bingo[5][5], b[5], i[5], n[5], g[5], o[5];
+         int numb;
+         int sum;
+         outputFile << "B" << "  " << "I" << "  " << "N" << "  " << "G" <    < "  " << "O" << endl;
+ 
+         for (int y=0; y < 5; y++)
+         {
+                 b[y] = rand()%15 + 1;
+                 i[y] = rand()%15 + 16;
+                 n[y] = rand()%15 + 31;
+                 g[y] = rand()%15 + 46;
+                 o[y] = rand()%15 + 61;
+                 outputFile << b[y] << " " << i[y] << " " << n[y] << " "     << g[y] << " " << o[y] << " " << endl;
+         }
+         outputFile << endl;
+
+
+         numb = rand()%75+1;
+         for (int y=0; y < 5; y++)
+         {
+                 if (b[y] == numb)
+                 {
+                         b[y] = 0;
+                 }
+                 else if (i[y] == numb)
+                 {
+                         i[y] = 0;
+                 }
+                 else if (n[y] == numb)
+                 {
+                         n[y] = 0;
+                 }
+                 else if (g[y] == numb)
+                 {
+                         g[y] = 0;
+                 }
+                 else
+                 {
+                         o[y] = 0;
+                 }
+         }
+         outputFile << endl;
+
+ outputFile.close();
+ }
